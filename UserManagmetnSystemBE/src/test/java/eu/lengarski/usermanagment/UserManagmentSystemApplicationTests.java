@@ -1,10 +1,10 @@
-package UserManagmetnSystem;
+package eu.lengarski.usermanagment;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class UserManagmetnSystemApplicationTests {
+class UserManagmentSystemApplicationTests {
 
 	@Test
 	void contextLoads() {
