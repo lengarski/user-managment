@@ -21,7 +21,7 @@ public class UserManagmentSystemApplication
         SpringApplication app = new SpringApplication(UserManagmentSystemApplication.class);
 
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("server.port", 19090);
+        map.put("server.port", 2020);
         map.put("spring.jpa.hibernate.ddl-auto", "update");
         map.put("spring.jpa.database-platform", "org.hibernate.dialect.MySQL8Dialect");
         app.setDefaultProperties(map);

@@ -21,7 +21,12 @@ public class DataSourceBean
     @Primary
     public DataSource getDataSource()
     {
-        return DataSourceBuilder.create().url(UserManagmentSystemConstants.DB_URL).username(UserManagmentSystemConstants.DB_USERNAME).password(UserManagmentSystemConstants.DB_PASSWORD).driverClassName("com.mysql.cj.jdbc.Driver").build();
+        return DataSourceBuilder.create()
+                .url(UserManagmentSystemConstants.DB_URL)
+                .username(UserManagmentSystemConstants.DB_USERNAME)
+                .password(UserManagmentSystemConstants.DB_PASSWORD)
+                .driverClassName("com.mysql.cj.jdbc.Driver")
+                .build();
     }
 
 }
