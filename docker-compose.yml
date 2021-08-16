@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ums
+      MYSQL_DATABASE: usermanagment
+      MYSQL_USER: ums
+      MYSQL_PASSWORD: ums
+	
+  backend:
+    depends_on:
+     - db
+    image: lengarski/usermanagment:latest
+    ports:
+     - 2020:2020
+    restart: on-failure
+    environment:
+     DB_HOST: db 
+
+  web:
+    depends_on:
+    - backend
+    image: lengarski/usermanagment-web:latest
+    ports:
+     - 8888:80
+    environment:
+      DB_HOST: db
+      BACKEND_IP: backend   
