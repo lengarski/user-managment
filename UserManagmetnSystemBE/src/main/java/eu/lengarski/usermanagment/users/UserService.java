@@ -21,6 +21,8 @@ public class UserService
 
     public UserDto getUserByEmail(String email)
     {
+        validate(email);
+
         Optional<UserEntity> userEntity = userRepository.getUserByEmail(email);
         if (!userEntity.isPresent())
         {
@@ -37,6 +39,8 @@ public class UserService
 
     public void addNewUser(UserDto userDto)
     {
+        validate(userDto);
+
         Optional<UserEntity> userEntity = userRepository.getUserByEmail(userDto.getEmail());
         if (userEntity.isPresent())
         {
@@ -50,6 +54,9 @@ public class UserService
 
     public void updateUser(UserDto userDto, String email)
     {
+        validate(email);
+        validate(userDto);
+
         Optional<UserEntity> userEntity = userRepository.getUserByEmail(email);
         if (!userEntity.isPresent())
         {
@@ -85,6 +92,32 @@ public class UserService
         user.setLastName(userDto.getLastName());
 
         return user;
+    }
+
+    public void deleteUser(String email)
+    {
+        Optional<UserEntity> userEntity = userRepository.getUserByEmail(email);
+        if (!userEntity.isPresent())
+        {
+            throw new RuntimeException("User with mail " + email + " not exists");
+        }
+        userRepository.delete(userEntity.get());
+    }
+
+    private void validate(UserDto userDto)
+    {
+        if (userDto == null)
+        {
+            throw new RuntimeException("Not valid request object");
+        }
+    }
+
+    private void validate(String email)
+    {
+        if (null == email || email.isEmpty())
+        {
+            throw new RuntimeException("Not valid mail!");
+        }
     }
 
 }

@@ -43,4 +43,10 @@ public class UserController
         userService.updateUser(user, email);
     }
 
+    @DeleteMapping ("")
+    public void deleteUser(@PathVariable String email)
+    {
+        userService.deleteUser(email);
+    }
+
 }
