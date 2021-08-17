@@ -9,7 +9,7 @@ services:
       MYSQL_DATABASE: usermanagment
       MYSQL_USER: ums
       MYSQL_PASSWORD: ums
-	
+
   backend:
     depends_on:
      - db
