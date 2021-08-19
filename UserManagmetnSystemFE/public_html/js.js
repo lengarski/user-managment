@@ -1,10 +1,22 @@
 $(document).ready(function() {
 
+         $.ajax({
+            url: "http://backend:2020/users",
+            type: "GET",
+            crossDomain: true,
+            headers: {
+              "accept": "application/json",
+              "Access-Control-Allow-Origin":"*"},
 
+            success: function (response) {
+                var resp = JSON.parse(response)
+                alert(resp.status);
+            },
+            error: function (xhr, status) {
+                alert("error");
+            }
+        });
 
-      $.get("http://192.168.0.105:2020/users", function(data, status){
-        alert("Data: " + data + "\nStatus: " + status);
-      });
 
 
 });

@@ -2,17 +2,11 @@ package eu.lengarski.usermanagment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @SpringBootApplication
-@ComponentScan ("eu.lengarski.usermanagment")
-@EnableJpaRepositories ("eu.lengarski.usermanagment")
-@EntityScan ("eu.lengarski.usermanagment")
 public class UserManagmentSystemApplication
 {
 
